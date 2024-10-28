@@ -55,7 +55,7 @@ class EmployeeController extends Controller
         $data->mobile     = $request->mobile;
         $data->address    = $request->address;
 
-        $avatar = $request->avatar('avatar');
+        $avatar = $request->file('avatar');
         if (!empty($avatar)) {
             $data->avatar  = uploadImage($avatar, 'uploads/employee');
         }
@@ -86,9 +86,8 @@ class EmployeeController extends Controller
         $data->name       = $request->name;
         $data->mobile     = $request->mobile;
         $data->address    = $request->address;
-        $data->status     = $request->status;
 
-        $avatar = $request->avatar('avatar');
+        $avatar = $request->file('avatar');
         if (!empty($avatar)) {
             if (file_exists($data->avatar)) unlink($data->avatar);
             $data->avatar = uploadImage($avatar, 'uploads/employee');

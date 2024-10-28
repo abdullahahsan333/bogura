@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\RecycleBinController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
@@ -51,6 +52,8 @@ Route::middleware('auth:admin')->group(function () {
                 Route::get('/edit/{id}',[ProjectController::class, 'edit'])->name('project.edit');
                 Route::post('/update',[ProjectController::class, 'update'])->name('project.update');
                 Route::get('/delete/{id}',[ProjectController::class, 'destroy'])->name('project.delete');
+                Route::post('/status-update',[ProjectController::class, 'statusUpdate'])->name('project.status-update');
+                Route::any('/restore/{id}',[RecycleBinController::class, 'projectRestore'])->name('project.restore');
             });
 
             Route::any('/employees',[EmployeeController::class, 'index'])->name('employees');
@@ -60,7 +63,12 @@ Route::middleware('auth:admin')->group(function () {
                 Route::get('/edit/{id}',[EmployeeController::class, 'edit'])->name('employee.edit');
                 Route::post('/update',[EmployeeController::class, 'update'])->name('employee.update');
                 Route::get('/delete/{id}',[EmployeeController::class, 'destroy'])->name('employee.delete');
+                Route::any('/restore/{id}',[RecycleBinController::class, 'employeeRestore'])->name('employee.restore');
             });
+            
+            Route::any('/recycle-bin',[RecycleBinController::class, 'index'])->name('recycle-bin');
+
+
 
             Route::any('/users',[UserController::class, 'index'])->name('users');
             Route::prefix('user')->group(function () {

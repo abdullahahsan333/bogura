@@ -52,6 +52,10 @@
 
    <!-- AlpineJS -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js" integrity="sha512-No22QdEJ4zlXvdQDpm6oeXcjwajpNxvnstx6NEU/5qZFysa5gsgj/bSfAFpSc9Za5LjbgQLRXyCeY53aWmk8ZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   {{-- jQuery CDN --}}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <!-- Tailwind -->

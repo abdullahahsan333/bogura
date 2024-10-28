@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Employee;
 use App\Models\Project;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class ProjectController extends Controller
     {
         $this->data['url'] = "admin";
         $this->data['activeMenu'] = 'project';
+        $this->data['employeeList'] = Employee::all();
     }
     /**
      * Display a listing of the resource.
@@ -112,4 +114,14 @@ class ProjectController extends Controller
 
         return redirect()->back();
     }
+
+
+        // update Status
+        public function statusUpdate(Request $request)
+        {
+            Project::where('id', $request->id)->update(['status' => $request->status]);
+            flash()->success('Project Status successful.');
+            echo 'success';
+        }
+    
 }

@@ -34,6 +34,11 @@
 
         @endif
 
+        <a href="{{ route((!empty($url) ? $url : '') . '.recycle-bin') }}" class="flex items-center {{ $activeMenu == 'recycle-bin' ? 'active-nav-link' : '' }} text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <i class="fa fa-trash mr-3" aria-hidden="true"></i>
+            Recycle Bin
+        </a>
+
     </nav>
 
 </aside>
